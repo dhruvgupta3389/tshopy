@@ -1,0 +1,209 @@
+ /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('4964560.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            color: #333; /* Adjust text color for readability */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .logo img {
+            max-height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        #search-bar {
+            padding: 10px;
+            width: 100%;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #search-button {
+            background-color: #ff9900;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #search-button:hover {
+            background-color: #e68a00;
+        }
+
+        /* T-shirt Styles */
+        #t-shirt-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .t-shirt {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .t-shirt:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .t-shirt img {
+            max-width: 100%; /* Adjust this to control image size */
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .t-shirt h2 {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .t-shirt p {
+            font-weight: bold;
+        }
+
+        .t-shirt a {
+            display: inline-block;
+            background-color: #ff9900;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .t-shirt a:hover {
+            background-color: #e68a00;
+        }
+
+        /* Price Filter and Sort Styles */
+        #price-filter,
+        #price-sort {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        /* Media Query for Phones */
+        @media (max-width: 768px) {
+            .search-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            #search-bar {
+                margin-top: 10px;
+            }
+
+            .sorting-options {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            label[for="category-select"],
+            label[for="price-sort"],
+            label[for="price-filter"] {
+                margin-bottom: 5px;
+            }
+
+            #category-select,
+            #price-sort,
+            #price-filter {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+       /* Media Query for Phones */
+@media (max-width: 768px) {
+    .sorting-options {
+        height: 50px; /* Set an initial height for the collapsed bar */
+        overflow: hidden;
+        transition: height 0.3s; /* Add a transition for smooth expansion */
+    }
+
+    .sorting-options.active {
+        height: auto; /* Expand the sorting options when the 'active' class is applied */
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #search-bar {
+        margin-top: 10px;
+    }
+}
+#toggle-sorting-options {
+    background-color: #ff9900;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#toggle-sorting-options:hover {
+    background-color: #e68a00;
+}
+@media (min-width: 769px) {
+    #toggle-sorting-options {
+        display: none; /* Hide the button on larger screens */
+    }
+}

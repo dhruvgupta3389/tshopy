@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Shirt Shop</title>
+    <link rel="stylesheet" href="./css.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="123.jpg" alt="T-Shirt Shop Logo">
+            <h1>T-Shirt Shop</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search-bar" placeholder="Search for T-Shirts">
+            <button id="search-button">Search</button>
+        </div>
+        <div class="sorting-options">
+            <label for="category-select">Sort by Category:</label>
+            <select id="category-select">
+                <option value="all">All</option>
+                <option value="tshirts">T-Shirts</option>
+                <option value="shirts">Shirts</option>
+                <option value="hoodie">Hoodie</option>
+                <option value="sweatshirt">Sweatshirt</option>
+                <option value="tank top">Tank Top</option>
+                <!-- Add more categories as needed -->
+            </select>
+            <label for="price-sort">Sort by Price:</label>
+            <select id="price-sort">
+                <option value="ascending">Low to High</option>
+                <option value="descending">High to Low</option>
+            </select>
+            <label for="price-filter">Filter by Price:</label>
+            <select id="price-filter">
+                <option value="all">All</option>
+                <option value="under500">Under ₹500</option>
+                <option value="500to1000">₹500 - ₹1000</option>
+                <option value="1000to1500">₹1000 - ₹1500</option>
+                <option value="1500to2000">₹1500 - ₹2000</option>
+                <!-- Add more price ranges as needed -->
+            </select>
+        </div>
+        <button id="toggle-sorting-options">Filter</button>
+    </header>
+    
+    <main id="t-shirt-list">
+        <!-- T-shirt items will be displayed here -->
+        <p id="no-items-found" class="no-items-found">No items found.</p>
+    </main>
+    <script src="./js.js"></script>
+</body>
+</html>
