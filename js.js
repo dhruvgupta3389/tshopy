@@ -1,4 +1,4 @@
- // Sample Product data (you can replace this with your data)
+// Sample Product data (you can replace this with your data)
 const products = [
     { name: "kitty heart", image: "1.png", link: "https://teeshopper.in/products/kitty-heart", category: "tshirts", price: 630 },
     { name: "owl print, trendy look, bird print", image: "2.png", link: "https://teeshopper.in/products/owl-print-trendy-look-bird-print", category: "tshirts", price: 630 },
@@ -167,26 +167,24 @@ priceFilterSelect.addEventListener('change', function () {
 
     displayProducts(selectedCategory, query, selectedSortOrder, minPrice, maxPrice);
 });
+
 // Event listener for the search bar
 searchBar.addEventListener('input', function () {
     const enteredText = searchBar.value.toLowerCase();
 
-   // easter egg
+    // easter egg
     if (enteredText === "031016042003") {
         alert('wow u found it😀😀');
-       
+
         window.location.href = "https://dhruvgupta33899.github.io/love/";
-    } 
-    else if (enteredText === "00000000") {
-        
-       
+    } else if (enteredText === "00000000") {
+
         window.location.href = "https://www.youtube.com/";
-    } 
-    
+    }
+
     // If the entered text is not a specific number, continue with regular search functionality
     // Rest of your existing code for displaying products based on the search
 });
-
 
 const sortingOptions = document.querySelector('.sorting-options');
 const toggleButton = document.getElementById('toggle-sorting-options');
@@ -194,5 +192,47 @@ const toggleButton = document.getElementById('toggle-sorting-options');
 toggleButton.addEventListener('click', () => {
     sortingOptions.classList.toggle('active');
 });
+
 // Initial display of all products
 displayProducts('all');
+
+// Function to fetch and merge JSON data with existing products
+async function loadProductData() {
+    try {
+        const response = await fetch('product.json');
+        if (!response.ok) {
+            throw new Error('Failed to load product data');
+        }
+        const newData = await response.json();
+        products.push(...newData);
+
+        // Call the displayProducts function to update the product list with new data
+        const selectedCategory = categorySelect.value;
+        const query = searchBar.value.toLowerCase();
+        const selectedSortOrder = priceSortSelect.value;
+        const selectedPriceRange = priceFilterSelect.value;
+
+        let minPrice = 0;
+        let maxPrice = Infinity;
+
+        if (selectedPriceRange === 'under500') {
+            maxPrice = 499.99;
+        } else if (selectedPriceRange === '500to1000') {
+            minPrice = 500;
+            maxPrice = 999.99;
+        } else if (selectedPriceRange === '1000to1500') {
+            minPrice = 1000;
+            maxPrice = 1499.99;
+        } else if (selectedPriceRange === '1500to2000') {
+            minPrice = 1500;
+            maxPrice = 1999.99;
+        } // Add more price range conditions as needed
+
+        displayProducts(selectedCategory, query, selectedSortOrder, minPrice, maxPrice);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// Call the function to load the JSON data
+loadProductData();
